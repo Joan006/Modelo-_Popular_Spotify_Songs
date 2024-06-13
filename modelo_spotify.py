@@ -27,11 +27,3 @@ print(df_spotify.isnull().sum())
 df_spotify.dropna(subset=['streams', 'in_deezer_playlists', 'in_shazam_charts', 'key'], inplace=True)
 
 variables_numerias =  ['streams', 'in_spotify_playlists', 'in_spotify_charts', 'in_apple_playlists', 'in_apple_charts','in_deezer_playlists', 'in_deezer_charts', 'in_shazam_charts', 'bpm', 'danceability_%', 'valence_%', 'energy_%', 'acousticness_%', 'instrumentalness_%', 'liveness_%', 'speechiness_%']
-
-plt.figure(figsize=(8, 10))
-for i, col in enumerate(variables_numerias, 1):
-    plt.subplot(5, 4, i)
-    sns.histplot(df_spotify[col], kde=True, bins=30)
-    plt.title(f'Distribution of {col}')
-plt.tight_layout()
-plt.show()
